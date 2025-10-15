@@ -1,0 +1,66 @@
+Starting >>> lvi_sam
+[  5%] Built target image_projection_node
+[  7%] Built target feature_extraction_node
+[  9%] Building CXX object CMakeFiles/pcap_publisher_node.dir/src/lidar_odometry/pcap_publisher_node.cpp.o
+[ 13%] Built target map_optimization_node
+[ 16%] Built target imu_preintegration_node
+[ 39%] Built target visual_feature_node
+[ 64%] Built target visual_loop_node
+[ 67%] Built target trajectory_node
+[ 98%] Built target visual_estimator_node
+[100%] Linking CXX executable pcap_publisher_node
+[100%] Built target pcap_publisher_node
+-- Install configuration: "Release"
+-- Up-to-date: /home/ros2_ws/install/lvi_sam/lib/lvi_sam/visual_feature_node
+-- Up-to-date: /home/ros2_ws/install/lvi_sam/lib/lvi_sam/visual_estimator_node
+-- Up-to-date: /home/ros2_ws/install/lvi_sam/lib/lvi_sam/visual_loop_node
+-- Up-to-date: /home/ros2_ws/install/lvi_sam/lib/lvi_sam/imu_preintegration_node
+-- Up-to-date: /home/ros2_ws/install/lvi_sam/lib/lvi_sam/image_projection_node
+-- Up-to-date: /home/ros2_ws/install/lvi_sam/lib/lvi_sam/feature_extraction_node
+-- Up-to-date: /home/ros2_ws/install/lvi_sam/lib/lvi_sam/map_optimization_node
+-- Installing: /home/ros2_ws/install/lvi_sam/lib/lvi_sam/pcap_publisher_node
+-- Set runtime path of "/home/ros2_ws/install/lvi_sam/lib/lvi_sam/pcap_publisher_node" to ""
+-- Up-to-date: /home/ros2_ws/install/lvi_sam/lib/lvi_sam/trajectory_node
+-- Up-to-date: /home/ros2_ws/install/lvi_sam/share/lvi_sam//launch
+-- Up-to-date: /home/ros2_ws/install/lvi_sam/share/lvi_sam//launch/include
+-- Up-to-date: /home/ros2_ws/install/lvi_sam/share/lvi_sam//launch/include/module_robot_state_publisher.py
+-- Up-to-date: /home/ros2_ws/install/lvi_sam/share/lvi_sam//launch/include/module_rviz.py
+-- Up-to-date: /home/ros2_ws/install/lvi_sam/share/lvi_sam//launch/include/module_sam.py
+-- Up-to-date: /home/ros2_ws/install/lvi_sam/share/lvi_sam//launch/run.py
+-- Up-to-date: /home/ros2_ws/install/lvi_sam/share/lvi_sam/launch
+-- Up-to-date: /home/ros2_ws/install/lvi_sam/share/lvi_sam/launch/include
+-- Up-to-date: /home/ros2_ws/install/lvi_sam/share/lvi_sam/launch/include/module_robot_state_publisher.py
+-- Up-to-date: /home/ros2_ws/install/lvi_sam/share/lvi_sam/launch/include/module_rviz.py
+-- Up-to-date: /home/ros2_ws/install/lvi_sam/share/lvi_sam/launch/include/module_sam.py
+-- Up-to-date: /home/ros2_ws/install/lvi_sam/share/lvi_sam/launch/run.py
+-- Up-to-date: /home/ros2_ws/install/lvi_sam/share/lvi_sam/urdf
+-- Up-to-date: /home/ros2_ws/install/lvi_sam/share/lvi_sam/urdf/robot.urdf.xacro
+-- Up-to-date: /home/ros2_ws/install/lvi_sam/share/lvi_sam/rviz
+-- Up-to-date: /home/ros2_ws/install/lvi_sam/share/lvi_sam/rviz/rviz.rviz
+-- Up-to-date: /home/ros2_ws/install/lvi_sam/share/lvi_sam/config
+-- Up-to-date: /home/ros2_ws/install/lvi_sam/share/lvi_sam/config/brief_k10L6.bin
+-- Up-to-date: /home/ros2_ws/install/lvi_sam/share/lvi_sam/config/brief_pattern.yaml
+-- Up-to-date: /home/ros2_ws/install/lvi_sam/share/lvi_sam/config/extrinsic_parameter_example.pdf
+-- Up-to-date: /home/ros2_ws/install/lvi_sam/share/lvi_sam/config/fisheye_mask_720x540.jpg
+-- Up-to-date: /home/ros2_ws/install/lvi_sam/share/lvi_sam/config/params_camera.yaml
+-- Up-to-date: /home/ros2_ws/install/lvi_sam/share/lvi_sam/config/params_lidar.yaml
+-- Up-to-date: /home/ros2_ws/install/lvi_sam/share/lvi_sam/config/test.py
+-- Up-to-date: /home/ros2_ws/install/lvi_sam/share/ament_index/resource_index/package_run_dependencies/lvi_sam
+-- Up-to-date: /home/ros2_ws/install/lvi_sam/share/ament_index/resource_index/parent_prefix_path/lvi_sam
+-- Up-to-date: /home/ros2_ws/install/lvi_sam/share/lvi_sam/environment/ament_prefix_path.sh
+-- Up-to-date: /home/ros2_ws/install/lvi_sam/share/lvi_sam/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/ros2_ws/install/lvi_sam/share/lvi_sam/environment/path.sh
+-- Up-to-date: /home/ros2_ws/install/lvi_sam/share/lvi_sam/environment/path.dsv
+-- Up-to-date: /home/ros2_ws/install/lvi_sam/share/lvi_sam/local_setup.bash
+-- Up-to-date: /home/ros2_ws/install/lvi_sam/share/lvi_sam/local_setup.sh
+-- Up-to-date: /home/ros2_ws/install/lvi_sam/share/lvi_sam/local_setup.zsh
+-- Up-to-date: /home/ros2_ws/install/lvi_sam/share/lvi_sam/local_setup.dsv
+-- Installing: /home/ros2_ws/install/lvi_sam/share/lvi_sam/package.dsv
+-- Up-to-date: /home/ros2_ws/install/lvi_sam/share/ament_index/resource_index/packages/lvi_sam
+-- Up-to-date: /home/ros2_ws/install/lvi_sam/share/lvi_sam/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Up-to-date: /home/ros2_ws/install/lvi_sam/share/lvi_sam/cmake/lvi_samConfig.cmake
+-- Up-to-date: /home/ros2_ws/install/lvi_sam/share/lvi_sam/cmake/lvi_samConfig-version.cmake
+-- Up-to-date: /home/ros2_ws/install/lvi_sam/share/lvi_sam/package.xml
+Finished <<< lvi_sam [17.1s]
+
+Summary: 1 package finished [17.8s]

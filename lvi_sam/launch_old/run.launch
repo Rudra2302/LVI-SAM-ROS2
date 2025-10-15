@@ -1,0 +1,15 @@
+<launch>
+    <arg name="pcap_file" default="/home/catkin_ws/src/Honda_data/Lidar_01.pcap"/>
+
+    <!--- Robot State TF -->
+    <include file="$(find lvi_sam)/launch/include/module_robot_state_publisher.launch" />
+
+    <!--- Run Rviz-->
+    <include file="$(find lvi_sam)/launch/include/module_rviz.launch" />
+
+    <!--- SAM -->
+    <include file="$(find lvi_sam)/launch/include/module_sam.launch">
+        <arg name="pcap_file" value="$(arg pcap_file)"/>
+    </include>
+
+</launch>

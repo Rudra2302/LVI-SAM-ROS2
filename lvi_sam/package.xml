@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>lvi_sam</name>
+  <version>0.0.1</version>
+  <description>LiDAR-Visual-Inertial SLAM - ROS 2 Port</description>
+
+  <maintainer email="shant@mit.com">lalala</maintainer>
+  <author>Tixiao Shan</author>
+  <license>BSD-3</license>
+
+  <!-- Build system -->
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <!-- Core ROS 2 dependencies -->
+  <depend>rclcpp</depend>
+  <depend>std_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>cv_bridge</depend>
+  <depend>pcl_conversions</depend>
+
+  <!-- External libraries -->
+  <depend>GTSAM</depend>
+  <depend>lvi_sam_msgs</depend>
+
+  <member_of_group>rosidl_interface_packages</member_of_group>
+
+  <!-- Message generation -->
+  <build_depend>rosidl_default_generators</build_depend>
+  <exec_depend>rosidl_default_runtime</exec_depend>
+  <exec_depend>rosbag2_cpp</exec_depend>
+  <exec_depend>rosbag2_storage</exec_depend>
+
+  <!-- Required for ROS 2 message packages -->
+  <export>
+    <build_type>ament_cmake</build_type>
+    <member_of_group>rosidl_interface_packages</member_of_group>
+  </export>
+</package>
