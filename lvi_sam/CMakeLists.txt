@@ -3,6 +3,7 @@ project(lvi_sam)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_BUILD_TYPE "Release")
+set(Eigen3_DIR "/opt/eigen/share/eigen3/cmake")
 
 # Dependencies
 find_package(ament_cmake REQUIRED)
@@ -17,11 +18,12 @@ find_package(cv_bridge REQUIRED)
 find_package(tf2 REQUIRED)
 find_package(tf2_geometry_msgs REQUIRED)
 find_package(pcl_conversions REQUIRED)
-find_package(PCL REQUIRED)
+find_package(PCL REQUIRED  COMPONENTS kdtree filters)
 find_package(OpenCV REQUIRED)
+find_package(Eigen3 REQUIRED)
 find_package(Ceres REQUIRED)
 find_package(GTSAM REQUIRED)
-find_package(Boost REQUIRED COMPONENTS filesystem program_options system timer)
+find_package(Boost REQUIRED COMPONENTS atomic filesystem program_options system timer)
 find_package(OpenMP REQUIRED)
 find_package(rosbag2_cpp REQUIRED)
 # find_package(camodocal REQUIRED)
@@ -41,6 +43,7 @@ find_package(lvi_sam_msgs REQUIRED)
 include_directories(
   include
   ${PCL_INCLUDE_DIRS}
+  ${EIGEN3_INCLUDE_DIR}
   ${OpenCV_INCLUDE_DIRS}
   ${CERES_INCLUDE_DIRS}
   ${Boost_INCLUDE_DIRS}
@@ -53,9 +56,11 @@ link_directories(
   ${GTSAM_LIBRARY_DIRS}
 )
 
+add_definitions(${PCL_DEFINITIONS})
+
 # Visual feature files
 file(GLOB_RECURSE visual_feature_files
-  "src/visual_odometry/visual_feature/*.cpp"
+  "src/visual_odometry/visual_feature/*.cpp"	
   "src/visual_odometry/visual_feature/camera_models/*.cc"
 )
 
@@ -89,7 +94,7 @@ ament_target_dependencies(visual_loop_node rclcpp std_msgs sensor_msgs geometry_
 
 # Lidar modules
 add_executable(imu_preintegration_node src/lidar_odometry/imuPreintegration.cpp)
-target_link_libraries(imu_preintegration_node ${PCL_LIBRARIES} ${OpenCV_LIBRARIES} gtsam Boost::timer)
+target_link_libraries(imu_preintegration_node ${PCL_LIBRARIES} ${OpenCV_LIBRARIES} gtsam Boost::timer Boost::atomic)
 ament_target_dependencies(imu_preintegration_node rclcpp std_msgs sensor_msgs geometry_msgs nav_msgs visualization_msgs cv_bridge tf2 tf2_geometry_msgs pcl_conversions lvi_sam_msgs rosbag2_cpp)
 
 add_executable(image_projection_node src/lidar_odometry/imageProjection.cpp)
@@ -102,15 +107,15 @@ ament_target_dependencies(feature_extraction_node rclcpp std_msgs sensor_msgs ge
 
 add_executable(map_optimization_node src/lidar_odometry/mapOptmization.cpp)
 target_compile_options(map_optimization_node PRIVATE -fopenmp)
-target_link_libraries(map_optimization_node ${PCL_LIBRARIES} ${OpenCV_LIBRARIES} gtsam Boost::timer OpenMP::OpenMP_CXX)
+target_link_libraries(map_optimization_node ${PCL_LIBRARIES} ${OpenCV_LIBRARIES} gtsam Boost::timer OpenMP::OpenMP_CXX Boost::atomic)
 ament_target_dependencies(map_optimization_node rclcpp std_msgs sensor_msgs geometry_msgs nav_msgs visualization_msgs cv_bridge tf2 tf2_geometry_msgs pcl_conversions lvi_sam_msgs rosbag2_cpp)
 
 add_executable(pcap_publisher_node src/lidar_odometry/pcap_publisher_node.cpp)
-target_link_libraries(pcap_publisher_node ${PCL_LIBRARIES} ${OpenCV_LIBRARIES} pcap gtsam Boost::timer)
+target_link_libraries(pcap_publisher_node ${PCL_LIBRARIES} ${OpenCV_LIBRARIES} pcap gtsam Boost::timer Boost::atomic)
 ament_target_dependencies(pcap_publisher_node rclcpp std_msgs sensor_msgs geometry_msgs nav_msgs visualization_msgs cv_bridge tf2 tf2_geometry_msgs pcl_conversions lvi_sam_msgs rosbag2_cpp image_transport)
 
 add_executable(trajectory_node src/lidar_odometry/trajectory2D.cpp)
-target_link_libraries(trajectory_node ${PCL_LIBRARIES} ${OpenCV_LIBRARIES} gtsam Boost::timer)
+target_link_libraries(trajectory_node ${PCL_LIBRARIES} ${OpenCV_LIBRARIES} gtsam Boost::timer Boost::atomic)
 ament_target_dependencies(trajectory_node rclcpp std_msgs sensor_msgs geometry_msgs nav_msgs visualization_msgs cv_bridge tf2 tf2_geometry_msgs pcl_conversions lvi_sam_msgs rosbag2_cpp image_transport)
 
 # Install targets
